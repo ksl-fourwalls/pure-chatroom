@@ -1,0 +1,76 @@
+html, body {
+	min-height: 100% !important;
+	height: 100%;
+	margin: 0;
+
+}
+
+.mychats {
+	position: absolute;
+	height: calc(100vh - 90px);
+	width: 100%;
+	border: 0;
+}
+.messages {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	scroll-behavior: smooth;
+	overflow-y: scroll;
+	transform: rotateX(180deg);
+}
+
+
+
+.me, .container {
+	padding: 20px 15px;
+	margin-bottom: 30px;
+	width: 200px;
+}
+
+.me {
+	clip-path: polygon(0% 0%, 90% 0%, 90% 90%, 100% 100%, 80% 90%, 0% 90%);
+	background: brown;
+	margin-left: calc(100% - 200px - 5%);
+}
+
+.container {
+	/* x y */
+	clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 20% 90%, 5% 100%, 10% 90%);
+	background: lightgreen;
+	padding-left: 40px;
+	margin-left: 5%;
+}
+
+.stylesinput {
+	width: 80%;
+	height: 3em;
+	background-color: white;
+	border-radius: 10px;
+	font-size: 1.2em;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.textboxcon {
+	background-color: grey;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	height: 90px;
+	width: 100%;
+
+	top: calc(100vh - 90px);
+}
+
+.textboxcon button {
+	background: no-repeat center/80% url(/images/send-1024.png);
+	background-color: lightgrey;
+	height: 5em;
+	width: 6em;
+	margin-left: 1em;
+	border-radius: 10px;
+}
+
