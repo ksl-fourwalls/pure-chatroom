@@ -9,8 +9,10 @@ include_once('database.php');
 $mydb = new dbcon();
 
 if(isset($_POST['submit'])) {
-	$sql = sprintf("insert into chats values ('%s', '%s')", $_SERVER['PHP_AUTH_USER'], $_POST['message']);
-	$mydb->query($sql);
+	if ($_POST['message'] !== "") {
+		$sql = sprintf("insert into chats values ('%s', '%s')", $_SERVER['PHP_AUTH_USER'], $_POST['message']);
+		$mydb->query($sql);
+	}
 }
 ?>
 <!doctype html>
@@ -20,8 +22,24 @@ if(isset($_POST['submit'])) {
 		<link rel="stylesheet" href="static/stylesheet.css" />
 	</head>
 	<body>
+<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+<!-- Sidebar -->
+<div class="w3-sidebar">
+  <div class="menu">
+    <h2 class="">Chats</h2>
+    <a href="#" >loluser</a>
+    <a href="#" style="background-color: #ccc">admin</a>
+  </div>
+  <div class="add_new_contact">
+    <input type="text">
+    <input type="submit" value="add new" class="add_new_contact">
+  </div>
+</div>
+</form>
 	<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-		<iframe src="/chat.php" class="mychats"></iframe>
+		<?php
+		 echo '<iframe src=/chat.php?to='.$_REQUEST['to'].' class="mychats"></iframe>';
+		?>
 		<div class="textboxcon">
 			<input type="text" class="stylesinput" placeholder="Type your message" name="message">
 			<button type="submit" value="submit" name="submit"></button>

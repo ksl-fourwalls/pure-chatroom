@@ -8,7 +8,6 @@ html, body {
 .mychats {
 	position: absolute;
 	height: calc(100vh - 90px);
-	width: 100%;
 	border: 0;
 }
 .messages {
@@ -30,7 +29,7 @@ html, body {
 
 .me {
 	clip-path: polygon(0% 0%, 90% 0%, 90% 90%, 100% 100%, 80% 90%, 0% 90%);
-	background: brown;
+	background: #e62758;
 	margin-left: calc(100% - 200px - 5%);
 }
 
@@ -42,35 +41,75 @@ html, body {
 	margin-left: 5%;
 }
 
-.stylesinput {
-	width: 80%;
-	height: 3em;
-	background-color: white;
-	border-radius: 10px;
-	font-size: 1.2em;
-	padding-left: 1em;
-	padding-right: 1em;
-}
 
+.textboxcon, .mychats {
+	width: 80%;
+	margin-left: 20%;
+}
 .textboxcon {
-	background-color: grey;
 	position: absolute;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
-	height: 90px;
-	width: 100%;
+	height: 10%;
+	top: calc(100vh - 10%);
+}
 
-	top: calc(100vh - 90px);
+.stylesinput {
+	width: 80%;
+	height: 3em;
+	background-color: white;
+	border-radius: 10px;
+	font-size: 1.0em;
+	padding-left: 1em;
+	padding-right: 1em;
 }
 
 .textboxcon button {
 	background: no-repeat center/80% url(/images/send-1024.png);
 	background-color: lightgrey;
-	height: 5em;
-	width: 6em;
+	height: 4em;
+	width: 5em;
 	margin-left: 1em;
 	border-radius: 10px;
 }
 
+.w3-sidebar {
+	background-color: #f1f1f1;
+	position: absolute;
+	height: 100%;
+	width: 20%;
+}
+
+
+.w3-sidebar .menu h2 {
+	display: table;
+	margin: 1em auto;
+}
+
+.w3-sidebar .menu a {
+	display: block;
+	text-decoration: none !important;
+	color: #343434;
+	padding: 1em;
+	padding-left: 1.5em;
+}
+
+.w3-sidebar .menu a:hover {
+	color:#000 !important;
+	background-color: #ccc !important;
+}
+
+
+.w3-sidebar .menu {
+	height: 90%;
+}
+.add_new_contact input {
+	display: table;
+	margin: 0 auto;
+}
+
+
+.w3-sidebar .add_new_contact {
+}

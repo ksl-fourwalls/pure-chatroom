@@ -21,7 +21,7 @@ $mydb = new dbcon();
 		if ($_SERVER['PHP_AUTH_USER'] == $row['user']) {
 			echo '<div class="me">'. $row["chat"] .'</div>';
 		}
-		else {
+		else if ($_REQUEST['to'] == $row['user']) {
 			echo '<div class="container">' . $row["chat"] . '</div>';
 		}
 	}
