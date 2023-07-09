@@ -1,12 +1,36 @@
 <?php
-if (!isset($_SERVER['PHP_AUTH_USER'])) {
+include_once('database.php');
+$mydb = new dbcon();
+
+function printError() {
 	header('WWW-Authenticate: Basic realm="My Realm"');
 	header('HTTP/1.0 401 Unauthorized');
 	exit;
 }
 
-include_once('database.php');
-$mydb = new dbcon();
+
+if (!isset($_SERVER['PHP_AUTH_USER'])) {
+	printError();
+} else {
+	$sql = sprintf("select * from register where user='%s'", $_SERVER['PHP_AUTH_USER']);
+	$result = $mydb->query($sql);
+	$row = $result->fetchArray();
+
+	// count number entry
+	if ($row) {
+		if ($row['password'] != $_SERVER['PHP_AUTH_PW'])
+			printError();
+		// when password is equal do nothing
+	}
+	else {
+		if (strlen($_SERVER['PHP_AUTH_USER']) > 40 || strlen($_SERVER['PHP_AUTH_PW']) > 40)
+			printError();
+
+		$sql = sprintf("insert into register values ('%s', '%s')", $_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW']);
+		$mydb->query($sql);
+	}
+}
+
 
 if(isset($_POST['submit'])) {
 	if ($_POST['message'] !== "") {
