@@ -56,7 +56,7 @@ if(isset($_POST['submit'])) {
   </div>
   <div class="add_new_contact">
     <input type="text">
-    <input type="submit" value="add new" class="add_new_contact">
+    <input type="submit" value="invite" class="add_new_contact">
   </div>
 </div>
 </form>
